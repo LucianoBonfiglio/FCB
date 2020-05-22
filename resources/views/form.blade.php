@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <script type="text/javascript" src={{ asset('js/scripts.js') }}></script>
+<div class="container">
 	<form>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="nombre">Nombre:</label>
@@ -19,11 +20,19 @@
 	    <input type="text" class="form-control" id="dni" name="dni">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	    <label for="localidad">Localidad:</label>
+	    <input type="text" class="form-control" id="localidad" name="localidad">
+	  </div>
+	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	  <label for="provincia">Provincia:</label>
 	  <select id="provincia" class="form-control" name="provincia">
 	  	<option value="" selected disabled hidden>Seleccione</option>
     	<option value = ""></option>
       </select>
+	  </div>
+	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	  	<label for="date">Fecha de nacimiento:</label><br>
+		<input type="date" class="form-control" name="fecha" step="1" min="1900-01-01" max="2020-12-31" value="<?php echo date("d-m-y");?>">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="telefono">Telefono:</label>
@@ -39,14 +48,30 @@
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="oficio">Oficio:</label>
-	    <input type="oficio" class="form-control" id="oficio" name="oficio">
+	    <input type="text" class="form-control" id="oficio" name="oficio">
+	  </div>
+	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	  <label for="estado">Estado Civil:</label>
+	  <select id="estado" class="form-control" name="estado">
+	  	<option value="" selected disabled hidden>Seleccione</option>
+    	<option value = "soltero">Soltero</option>
+		<option value = "casado">Casado</option>
+		<option value = "viudo">Viudo</option>
+		<option value = "separado">Separado</option>
+		<option value = "divorciado">Divorciado</option>
+      </select>
+	  </div>
+	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	    <label for="domicilio">Domicilio:</label>
+	    <input type="text" class="form-control" id="domicilio" name="domicilio">
 	  </div>
     
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-	    <button type="submit" class="btn btn-default">Submit</button>
+	    <button type="submit" class="btn btn-default">Enviar</button>
 	  </div>
 	</form>
 	</div>
+</div>	
 </body>
 
 @endsection

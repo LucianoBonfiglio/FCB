@@ -2,7 +2,8 @@
 @section('content')
 <script type="text/javascript" src={{ asset('js/scripts.js') }}></script>
 <div class="container">
-	<form>
+	<form action="{{ route('usuarios.create') }}" method="GET" enctype="multipart/form-data">
+	{{csrf_field()}}
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="nombre">Nombre:</label>
 	    <input type="text" class="form-control" id="nombre" name="nombre">
@@ -27,7 +28,7 @@
 	  <label for="provincia">Provincia:</label>
 	  <select id="provincia" class="form-control" name="provincia">
 	  	<option value="" selected disabled hidden>Seleccione</option>
-    	<option value = ""></option>
+    	<option value =""></option>
       </select>
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -42,8 +43,8 @@
 	  <label for="sexo">Sexo:</label>
 	  <select id="sexo" class="form-control" name="sexo">
 	  	<option value="" selected disabled hidden>Seleccione</option>
-    	<option value = "masculino">Masculino</option>
-		<option value = "femenino">Femenino</option>
+    	<option value = "Masculino">Masculino</option>
+		<option value = "Femenino">Femenino</option>
       </select>
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -54,11 +55,11 @@
 	  <label for="estado">Estado Civil:</label>
 	  <select id="estado" class="form-control" name="estado">
 	  	<option value="" selected disabled hidden>Seleccione</option>
-    	<option value = "soltero">Soltero</option>
-		<option value = "casado">Casado</option>
-		<option value = "viudo">Viudo</option>
-		<option value = "separado">Separado</option>
-		<option value = "divorciado">Divorciado</option>
+    	<option value = "Soltero">Soltero</option>
+		<option value = "Casado">Casado</option>
+		<option value = "Viudo">Viudo</option>
+		<option value = "Separado">Separado</option>
+		<option value = "Divorciado">Divorciado</option>
       </select>
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">

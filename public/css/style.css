@@ -8,7 +8,20 @@
 }
 
 footer{
-	height: 100px;	
-	background-color: black;
-	color:white; 
+	height: 100px;
+	background-color: rgb(243, 247, 214)	;
+	color: black; 
+}
+
+form div{
+	padding: 10px 10px 10px 10px;
+}
+
+body nav{
+	background-color: rgb(213, 213, 231);
+	color: black;
+}
+
+body nav a{
+	color: black;
 }

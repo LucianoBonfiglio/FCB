@@ -20,3 +20,10 @@ Route::get('/web', function () {
 });
 
 Route::post('usuarios', 'UsuariosController@create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

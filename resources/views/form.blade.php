@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.applay')
 @section('content')
 <script type="text/javascript" src={{ asset('js/scripts.js') }}></script>
 <div class="container">

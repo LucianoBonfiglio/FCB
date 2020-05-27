@@ -2,33 +2,39 @@
 @section('content')
 <script type="text/javascript" src={{ asset('js/scripts.js') }}></script>
 <div class="container">
-	<form action="{{ route('usuarios.create') }}" method="GET" enctype="multipart/form-data">
+	<ul>
+		@foreach ($errors->all() as $error)
+		<li>
+			{{$error}}
+		</li>
+		@endforeach	
+	</ul>
+	<form action="{{URL::to('usuarios')}}" method="POST" enctype="multipart/form-data">
 	{{csrf_field()}}
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="nombre">Nombre:</label>
-	    <input type="text" class="form-control" id="nombre" name="nombre">
+	    <input type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="apellido">Apellido:</label>
-	    <input type="text" class="form-control" id="apelido" name="apellido">
+	    <input type="text" class="form-control" id="apelido" name="apellido" value="{{old('apellido')}}">
 	  </div>  
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="email">Email:</label>
-	    <input type="email" class="form-control" id="email" name="email">
+	    <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="dni">DNI:</label>
-	    <input type="text" class="form-control" id="dni" name="dni">
+	    <input type="text" class="form-control" id="dni" name="dni" value="{{old('dni')}}">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="localidad">Localidad:</label>
-	    <input type="text" class="form-control" id="localidad" name="localidad">
+	    <input type="text" class="form-control" id="localidad" name="localidad" value="{{old('localidad')}}">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	  <label for="provincia">Provincia:</label>
-	  <select id="provincia" class="form-control" name="provincia">
+	  <select id="provincia" class="form-control" name="provincia" value="{{old('provincia')}}">
 	  	<option value="" selected disabled hidden>Seleccione</option>
-    	<option value =""></option>
       </select>
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -37,11 +43,11 @@
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="telefono">Telefono:</label>
-	    <input type="integer" class="form-control" id="telefono" name="telefono">
+	    <input type="integer" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}">
 	  </div>  
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	  <label for="sexo">Sexo:</label>
-	  <select id="sexo" class="form-control" name="sexo">
+	  <select id="sexo" class="form-control" name="sexo" value="{{old('sexo')}}">
 	  	<option value="" selected disabled hidden>Seleccione</option>
     	<option value = "Masculino">Masculino</option>
 		<option value = "Femenino">Femenino</option>
@@ -49,11 +55,11 @@
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="oficio">Oficio:</label>
-	    <input type="text" class="form-control" id="oficio" name="oficio">
+	    <input type="text" class="form-control" id="oficio" name="oficio" value="{{old('oficio')}}">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	  <label for="estado">Estado Civil:</label>
-	  <select id="estado" class="form-control" name="estado">
+	  <select id="estado" class="form-control" name="estado" value="{{old('estado')}}">
 	  	<option value="" selected disabled hidden>Seleccione</option>
     	<option value = "Soltero">Soltero</option>
 		<option value = "Casado">Casado</option>
@@ -64,9 +70,16 @@
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="domicilio">Domicilio:</label>
-	    <input type="text" class="form-control" id="domicilio" name="domicilio">
+	    <input type="text" class="form-control" id="domicilio" name="domicilio" value="{{old('domicilio')}}">
 	  </div>
-    
+	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	    <label for="dnifrente">Foto DNI Frente:</label>
+	    <input type="file" class="form-control" id="dnifrente" name="dnifrente" value="">
+	  </div>
+	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+	    <label for="dniatras">Foto DNI Dorso:</label>
+	    <input type="file" class="form-control" id="dniatras" name="dniatras" value="">
+	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <button type="submit" class="btn btn-default">Enviar</button>
 	  </div>

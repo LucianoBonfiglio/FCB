@@ -9,7 +9,7 @@ window.addEventListener("load", function() {
         tipos = json.provincias
   
         for (var i = 0; i < tipos.length; i++) {
-          option.innerHTML += '<option value "' + tipos[i].nombre + '">' + tipos[i].nombre +'</option>'
+          option.innerHTML += "<option value="+tipos[i].nombre+">" + tipos[i].nombre +"</option>"
         }
       })
   });

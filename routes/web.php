@@ -19,4 +19,4 @@ Route::get('/web', function () {
     return view('web');
 });
 
-Route::resource('usuarios', 'UsuariosController');
+Route::post('usuarios', 'UsuariosController@create');

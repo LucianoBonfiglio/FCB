@@ -19,6 +19,13 @@ Route::get('/web', function () {
     return view('web');
 });
 
+Route::get('/quienes', function () {
+    return view('quienes');
+});
+Route::get('/contacto', function () {
+    return view('contacto');
+});
+
 Route::post('usuarios', 'UsuariosController@create');
 Auth::routes();
 

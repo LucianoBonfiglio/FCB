@@ -9,7 +9,7 @@
 
 footer{
 	height: 100px;
-	background-color: rgb(243, 247, 214)	;
+	background-color: rgb(255, 255, 255)	;
 	color: black; 
 }
 
@@ -24,4 +24,17 @@ body nav{
 
 body nav a{
 	color: black;
+}
+
+#menulateral{
+	padding: 10px 10px 10px 1px;
+	text-align: center;
+}
+
+#capa{
+	padding: 30px 10px 10px 1px;
+}
+
+h2{
+	text-align: center;
 }

@@ -1,5 +1,17 @@
 @extends('layouts.app')
 @section('content')
+		<!-- Acción sobre el botón con id=boton y actualizamos el div con id=capa -->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#boton").click(function(event) {
+					$("#capa").load('quienes');
+        });
+        $("#contacto").click(function(event) {
+					$("#capa").load('contacto');
+				});
+			});
+    </script>
+    
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -32,23 +44,25 @@
 </div>
 
 <div class="container">
-  <h1>QUIENES SOMOS</H1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-<div class="container">
-  <h1>NUESTRAS PROPUESTAS</H1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+    <div id="menulateral">  
+      <h1>MENU</h1>
+    </div>
+    <div id="menulateral">  
+      <button type="button" id="boton" class="btn btn-primary">QUIENES SOMOS</button>
+    </div>
+    <div id="menulateral">  
+      <button type="button" id="boton" class="btn btn-primary">GALERIA</button>
+    </div>
+    <div id="menulateral">  
+      <button type="button" id="contacto" class="btn btn-primary">CONTACTO</button>
+    </div>
+  </div>  
+  <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+    <div id="capa"></div>
+  </div>   
 </div>
 </body>
 
 @endsection
+

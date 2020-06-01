@@ -35,9 +35,8 @@
         @yield('content')
     </main>
 </body>
-<footer class="page-footer font-small special-color-dark pt-4">
-
 <div class="container">
+  <footer class="page-footer font-small special-color-dark pt-4">
   <div class="footer-copyright text-center py-3">NUESTRAS REDES SOCIALES
 </div>
 <br>
@@ -72,7 +71,8 @@
 </div>
 
 <div class="footer-copyright text-center py-3">© 2020 Copyright:
-  <a href="https://mdbootstrap.com/"> Luciano Bonfiglio</a>
+  <a href="mailto:luciano.bonfiglio88@gmail.com"> Luciano Bonfiglio</a>
 </div>
   </footer>
+</div>
 </html>    

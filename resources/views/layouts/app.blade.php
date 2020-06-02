@@ -58,6 +58,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a class="dropdown-item" href="{{url('user.edit')}}">{{ __('Perfil') }}</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

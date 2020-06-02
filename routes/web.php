@@ -25,8 +25,16 @@ Route::get('/quienes', function () {
 Route::get('/contacto', function () {
     return view('contacto');
 });
+Route::get('/edituser', function () {
+    return view('edituser');
+});
+
+Route::resource('user', 'UsersController');
+
+
 
 Route::post('usuarios', 'UsuariosController@create');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -61,6 +61,25 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('rol') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Rol</label>
+
+                            <div class="col-md-6">
+                                
+                                <input id="administrador" type="radio" class="" name="rol" value="administrador" required>
+                                <label for="administrador">Administrador</label>
+                                <br>
+                                <input id="usuario" type="radio" class="" name="rol" value="usuario" required>
+                                <label for="usuario">Usuario</label>
+
+                                @if ($errors->has('rol'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('rol') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

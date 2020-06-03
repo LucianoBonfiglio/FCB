@@ -29,7 +29,7 @@ Route::get('/edituser', function () {
     return view('edituser');
 });
 
-Route::resource('user', 'UsersController');
+Route::post('user', 'UsersController@update');
 
 
 

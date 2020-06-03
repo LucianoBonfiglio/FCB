@@ -12,19 +12,36 @@ class UsersController extends Controller
     public function edit(User $user)
     {
 
-       return view('edituser', compact('user'));
+       return view('editusuario', compact('user'));
 
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
     public function update(User $user)
     {
-        $user->update([
-            'name'=>request()->name,
-            'email'=>request()->email,
-            'password'=>Hash::make(request()->password),
-            'rol'=>request()->rol
-        ]);
-        return redirect()->route('home', $user)->with(['status'=> "Se editó el user $user->name"]);
+    $usuario = User::findOrFail($user);
+    $usuario->update([
+        'name'=>request()->name,
+        'email'=>request()->email,
+        'password'=>Hash::make(request()->password),
+        'rol'=>request()->rol
+    ]);
+
+    return redirect()->route('home', $usuario)->with(['status'=> "Se editó el user $usuario->name"]); 
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(User $user)
     {
         $user->delete() ;

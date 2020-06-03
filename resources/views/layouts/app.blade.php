@@ -1,3 +1,6 @@
+<?php
+use App\User;
+?>
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -58,7 +61,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a class="dropdown-item" href="{{url('user.edit')}}">{{ __('Perfil') }}</a>
+                                        <a class="dropdown-item" href="{{url('/edituser')}}">{{ __('Perfil') }}</a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

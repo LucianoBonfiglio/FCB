@@ -11,8 +11,10 @@
             </div>
 
             <div class="card-body">
-            <form action="{{URL::to('user') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{URL::to('userupdate') }}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
+                <input type="hidden" name="id" value="{{Auth::user()->id}}">
+
                 <div class="form-group row">
                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -71,7 +73,13 @@
                     </div>
                 </div>
             </form>
-
+            <div class="card-body">
+            <form action="{{URL::to('/user') }}" method="POST" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <input type="hidden" name="id" value="{{Auth::user()->id}}">
+            <input type="submit" name="" value="Eliminar Usuario">
+            </form>
+            </div>
             </div>
         </div>
     </div>

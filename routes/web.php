@@ -29,7 +29,8 @@ Route::get('/edituser', function () {
     return view('edituser');
 });
 
-Route::post('user', 'UsersController@update');
+Route::post('user', 'UsersController@delete');
+Route::post('userupdate', 'UsersController@update');
 
 
 

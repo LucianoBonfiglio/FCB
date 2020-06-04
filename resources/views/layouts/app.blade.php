@@ -15,7 +15,7 @@ use App\User;
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Frente Conservador Popular</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -37,7 +37,7 @@ use App\User;
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    Frente Conservador Popular
                     </a>
                 </div>
 
@@ -55,7 +55,7 @@ use App\User;
                         @else
                         @if(Auth::user()->rol==="administrador")
                             <li><a href="{{ route('register') }}">Register</a></li>
-                            @endif
+                        @endif
                         @if(Auth::user()->rol==="administrador")
                         <li><a href="{{ route('register') }}">Panel</a></li>
                         @endif

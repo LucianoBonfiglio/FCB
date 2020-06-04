@@ -62,4 +62,52 @@ class UsuariosController extends Controller
         $users->save();
         return redirect()->back();
     }
+
+    Public function listado (){
+        $usuarios = Usuario::all();
+        $vac = compact("usuarios");
+        return view("listadoUsuario", $vac);
+    }
+
+    public function delete(Request $usuario)
+    {
+        $id = $usuario["id"];
+        $usuario = Usuario::findOrFail($id);
+        $usuario->delete();
+        return redirect("/listadoUsuario");
+    }
+    
+    public function update(Request $modi)
+    {
+        if(request()->dni_frente){
+            $ruta_archivo = request()->file('dni_frente')->store('public/storage/');
+            if($modi->dni_frente){
+                Storage::delete('public/storage/'.$modi->dni_frente);
+            }
+        }
+        if(request()->dni_atras){
+            $ruta_archivo = request()->file('dni_atras')->store('public/storage/');
+            if($modi->dni_atras){
+                Storage::delete('public/storage/'.$modi->dni_atras);
+            }
+        }
+        $id = $modi["id"];
+        $modi = Usuario::find($id);
+        $modi->update([
+            'nombre'=>request()->nombre,
+            'apellido'=>request()->apellido,
+            'email'=>request()->email,
+            'dni'=>request()->dni,
+            'localidad'=>request()->localidad,
+            'provincia'=>request()->provincia,
+            'fecha_nac'=>request()->fecha_nac,
+            'sexo'=>request()->sexo,
+            'oficio'=>request()->oficio,
+            'estado'=>request()->estado,
+            'domicilio'=>request()->domicilio,
+            'dni_frente'=> isset($ruta_archivo) ? basename($ruta_archivo): $modi->dni_frente,
+            'dni_atras'=> isset($ruta_archivo) ? basename($ruta_archivo): $modi->dni_atras,
+        ]);
+        return redirect()->route('home', $modi)->with(['status'=> "Se editó el usuario $modi->name"]);
+    }
 }

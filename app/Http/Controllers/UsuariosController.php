@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UsuariosController extends Controller
 {
@@ -69,6 +70,12 @@ class UsuariosController extends Controller
         return view("listadoUsuario", $vac);
     }
 
+    Public function listadounico (){
+        $usuarios = Usuario::findOrFail($id);
+        $vac = compact("usuarios");
+        return view("listadoUsuario", $vac);
+    }
+
     public function delete(Request $usuario)
     {
         $id = $usuario["id"];
@@ -77,37 +84,43 @@ class UsuariosController extends Controller
         return redirect("/listadoUsuario");
     }
     
-    public function update(Request $modi)
-    {
-        if(request()->dni_frente){
-            $ruta_archivo = request()->file('dni_frente')->store('public/storage/');
-            if($modi->dni_frente){
-                Storage::delete('public/storage/'.$modi->dni_frente);
-            }
-        }
-        if(request()->dni_atras){
-            $ruta_archivo = request()->file('dni_atras')->store('public/storage/');
-            if($modi->dni_atras){
-                Storage::delete('public/storage/'.$modi->dni_atras);
-            }
-        }
-        $id = $modi["id"];
-        $modi = Usuario::find($id);
-        $modi->update([
-            'nombre'=>request()->nombre,
-            'apellido'=>request()->apellido,
-            'email'=>request()->email,
-            'dni'=>request()->dni,
-            'localidad'=>request()->localidad,
-            'provincia'=>request()->provincia,
-            'fecha_nac'=>request()->fecha_nac,
-            'sexo'=>request()->sexo,
-            'oficio'=>request()->oficio,
-            'estado'=>request()->estado,
-            'domicilio'=>request()->domicilio,
-            'dni_frente'=> isset($ruta_archivo) ? basename($ruta_archivo): $modi->dni_frente,
-            'dni_atras'=> isset($ruta_archivo) ? basename($ruta_archivo): $modi->dni_atras,
-        ]);
-        return redirect()->route('home', $modi)->with(['status'=> "Se editó el usuario $modi->name"]);
+    public function modificar(Request $req) {
+
+        $id = $req['id'];
+        $prodaeditar = Usuario::find($id);
+        $vac = compact("prodaeditar","id");
+        return view("modificarUsuario", $vac);
+       
+    }
+    
+    public function editar(Request $req) {
+
+        $id = $req['id'];
+        $prodaeditar = Usuario::find($id);
+       
+        $vac = compact("prodaeditar");
+        $prodaeditar->nombre = $req['nombre'];
+        $prodaeditar->apellido = $req["apellido"];
+        $prodaeditar->email = $req["email"];
+        $prodaeditar->dni = $req["dni"];
+        $prodaeditar->localidad = $req['localidad'];
+        $prodaeditar->provincia = $req["provincia"];
+        $prodaeditar->fecha_nac = $req["fecha_nac"];
+        $prodaeditar->telefono = $req["telefono"];
+        $prodaeditar->sexo = $req['sexo'];
+        $prodaeditar->oficio = $req["oficio"];
+        $prodaeditar->estado = $req["estado"];
+        $prodaeditar->domicilio = $req["domicilio"];
+
+        $ruta = $req->file("dni_frente")->store("public");
+        $nombreArchivo = basename($ruta);
+        $prodaeditar->dni_frente = $nombreArchivo;
+
+        $ruta = $req->file("dni_atras")->store("public");
+        $nombreArchivo2 = basename($ruta);
+        $prodaeditar->dni_atras = $nombreArchivo2;
+ 
+         $prodaeditar->save();
+        return redirect("/home");
     }
 }

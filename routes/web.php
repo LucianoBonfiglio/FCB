@@ -32,9 +32,10 @@ Route::get('/edituser', function () {
 Route::post('user', 'UsersController@delete');
 Route::post('userupdate', 'UsersController@update');
 
-Route::get('/modificarUsuario', function () {
-    return view('modificarUsuario');
-});
+
+Route::get('/modificarUsuario{id}', 'UsuariosController@modificar');
+Route::put('/modificarUsuarios{id}', 'UsuariosController@editar');
+
 Route::get('/listadoUsuario', 'UsuariosController@listado');
 Route::post('usuarios', 'UsuariosController@create');
 Route::post('usuariosdelete', 'UsuariosController@delete');

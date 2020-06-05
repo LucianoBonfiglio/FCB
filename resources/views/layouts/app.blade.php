@@ -1,5 +1,6 @@
 <?php
 use App\User;
+use App\Usuario;
 ?>
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">

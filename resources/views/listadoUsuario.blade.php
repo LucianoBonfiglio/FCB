@@ -28,10 +28,7 @@
                         <td>{{$usuario["fecha"]}}</td>
 
                         @if(Auth::user()->rol==="administrador")
-                        <td><form action="{{ url('/modificarUsuario') }}" method="GET" enctype="multipart/form-data">
-                            {{csrf_field()}}
-                            <input type="submit" name="" value="Modificar">
-                            </form></td>
+                            <td><button class="btn btn-warning"><a href="/modificarUsuario{{$usuario["id"]}}">Modificar</a></button></td>
                             <td><form action="{{URL::to('/usuariosdelete') }}" method="POST" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <input type="hidden" name="id" value="{{$usuario->id}}">

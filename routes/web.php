@@ -34,7 +34,7 @@ Route::post('userupdate', 'UsersController@update');
 
 
 Route::get('/modificarUsuario{id}', 'UsuariosController@modificar');
-Route::put('/modificarUsuarios{id}', 'UsuariosController@editar');
+Route::get('/modificarUsuarios{id}', 'UsuariosController@editar');
 
 Route::get('/listadoUsuario', 'UsuariosController@listado');
 Route::post('usuarios', 'UsuariosController@create');

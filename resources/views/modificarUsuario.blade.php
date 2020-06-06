@@ -9,9 +9,9 @@
 		</li>
 		@endforeach	
 	</ul>
-	<form action="modificarUsuarios{{$prodaeditar["id"]}}" method="post" enctype="multipart/form-data">
+	{{ $prodaeditar["nombre"] }}
+	<form action="modificarUsuarios{{$prodaeditar["id"]}}" method="GET" enctype="multipart/form-data">
           {{ csrf_field() }}
-          {{ method_field('PUT') }}
           <input type="hidden" name="id" value="{{$prodaeditar["id"]}}">
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 	    <label for="nombre">Nombre:</label>

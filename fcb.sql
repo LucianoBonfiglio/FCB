@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2020 a las 13:38:53
+-- Tiempo de generación: 06-06-2020 a las 15:45:21
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.0
 
@@ -34,6 +34,13 @@ CREATE TABLE `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(2, '2020_06_02_120309_ColumnaRol', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -60,15 +67,17 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `rol` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Luciano', 'luciano@gmail.com.ar', NULL, '$2y$10$ycUIq0SQyismzltrBrwGWO2X3kkM9XHx7XSEa1TivgPXvRQUMaXhe', NULL, '2020-05-30 17:41:03', '2020-05-30 17:41:03');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `rol`) VALUES
+(1, 'LucianoBonfiglio', 'luciano2@gmail.com', NULL, '$2y$10$MuMVO5tU0t5.b1TDtmhXbeFIxW40HFy91kf.QYewg/HQZjsbVvfXq', 'RZmglmugsv5uGB9TjOOBt5CWarmszAg31XNkZ2PnPcQiPfcMgYNrgAcIgiVx', '2020-05-30 17:41:03', '2020-06-04 16:44:37', 'administrador'),
+(3, 'Luciano', 'luciano88@gmail.com', NULL, '$2y$10$8kUKOp/3bO1LME12KLkQC.AsjpL.y9FGTx7.hytmMsaqeOk4h/Kee', '8zPO6IPkSBH5tbRNzxHlnTDrNpYpVN0Z1aIgDlUl3WD5x5Yc1aeCIBuCItUa', '2020-06-04 17:08:01', '2020-06-04 17:08:01', 'usuario');
 
 -- --------------------------------------------------------
 
@@ -100,8 +109,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `dni`, `localidad`, `provincia`, `fecha_nac`, `telefono`, `sexo`, `oficio`, `estado`, `domicilio`, `dni_frente`, `dni_atras`, `fecha`) VALUES
-(1, 'Luciano', 'Bonfiglio', 'luciano@gmail.com.ar', 33485123, 'Rosario', 'San', '1998-01-22', 153, 'Masculino', 'Empleado', 'Soltero', 'Zeballos 2679', 'uK3Dg51SmFCtqwj3HDMINhQFt4CxLXOQzou8T9pp.jpeg', 'xtfAZJ9NlKd6C9JARumflomSZ5gTJktvkOh1s7VE.jpeg', '2020-05-30 09:58:57'),
-(2, 'Luciano', 'Bonfiglio', 'luciano@gmail.com', 33485124, 'Rosario', 'La', '1988-01-22', 153, 'Masculino', 'Empleado', 'Soltero', 'Zeballos 2679', 'lxAecuRyIYD9u8Qq5IcfAZcfy90LxeFMLwvpl7KE.jpeg', 'PbccxVQax8oDPasnxnpSXtPARIuxkunWgn9mSXqz.jpeg', '2020-06-01 09:59:29');
+(5, 'Luciano', 'Bonfiglio', 'luciano@gmail.com.ar', 33485123, 'Rosario', 'San', '1988-01-22', 153, 'Masculino', 'Empleado', 'Casado', 'Zeballos 2679', 'AEHPBpATSNuxnNtQIaqW7KP67OGcdgTq9A0E7E1x.jpeg', 'qDlOJTincpuaNtNRZNxf1dmigKaFN49ZUX8yUc0o.jpeg', '2020-06-04 15:18:44');
 
 --
 -- Índices para tablas volcadas
@@ -133,19 +141,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

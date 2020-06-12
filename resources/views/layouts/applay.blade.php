@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container">
-	<nav>
+	<nav class="navbar navbar-dark bg-primary" id="navform">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">

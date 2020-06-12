@@ -41,6 +41,10 @@ Route::post('usuarios', 'UsuariosController@create');
 Route::post('usuariosdelete', 'UsuariosController@delete');
 Route::post('usuariosupdate', 'UsuariosController@update');
 
+Route::get('/nuevoregistro', function(){
+    return view('auth/register');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

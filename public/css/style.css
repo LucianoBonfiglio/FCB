@@ -9,12 +9,16 @@
 
 footer{
 	height: 100px;
-	background-color: rgb(255, 255, 255)	;
-	color: black; 
+	background-color: rgb(83, 92, 172)	;
+	color: white; 
 }
 
 form div{
 	padding: 10px 10px 10px 10px;
+}
+
+form input{
+	border-radius: 60px;
 }
 
 body nav{
@@ -46,4 +50,45 @@ table, tr{
 td{
 	border: 1px black solid;
 	width: 500px;
+}
+*{box-sizing:border-box;}
+
+#navform a{
+	color:white;
+}
+
+input[type="file"]{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+label[for="dnifrente"] {
+	font-size: 15px;
+	font-weight: 600;
+	color: #fff;
+	background-color: rgb(166, 169, 170);
+	display: inline-block;
+	transition: all .5s;
+	cursor: pointer;
+	padding: 5px 10px !important;
+	text-transform: uppercase;
+	width: fit-content;
+	text-align: center;
+}
+label[for="dniatras"] {
+	font-size: 15px;
+	font-weight: 600;
+	color: #fff;
+	background-color: rgb(166, 169, 170);
+	display: inline-block;
+	transition: all .5s;
+	cursor: pointer;
+	padding: 5px 10px !important;
+	text-transform: uppercase;
+	width: fit-content;
+	text-align: center;
 }

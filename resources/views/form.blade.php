@@ -73,15 +73,17 @@
 	    <input type="text" class="form-control" id="domicilio" name="domicilio" value="{{old('domicilio')}}">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-	    <label for="dnifrente">Foto DNI Frente:</label>
+	    <label for="dnif">Foto DNI Frente:</label><br>
+	    <label for="dnifrente">Subir Archivo</label>
 	    <input type="file" class="form-control" id="dnifrente" name="dnifrente" value="">
 	  </div>
 	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-	    <label for="dniatras">Foto DNI Dorso:</label>
+	  	<label for="dnia">Foto DNI Dorso:</label><br>
+	    <label for="dniatras">Subir Archivo</label>
 	    <input type="file" class="form-control" id="dniatras" name="dniatras" value="">
 	  </div>
-	  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-	    <button type="submit" class="btn btn-default">Enviar</button>
+	  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	    <button type="submit" class="btn btn-primary">Enviar</button>
 	  </div>
 	</form>
 	</div>
